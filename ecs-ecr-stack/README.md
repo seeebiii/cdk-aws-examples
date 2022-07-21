@@ -1,8 +1,28 @@
-# Welcome to your CDK TypeScript project
+# ecs-ecr-stack
 
-This is a blank project for CDK development with TypeScript.
+An example CDK project deploying an ECR repository and an ECS Fargate setup which is using Docker images from the ECR repository.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [AWS CLI Setup](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [AWS CDK CLI](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html)
+
+## Quick Start
+
+1. `cdk deploy EcrSetup`: creates the ECR repository
+2. Execute the bash script to build a Docker image:
+```shell
+$ ./build-and-push-docker.sh
+```
+3. `cdk deploy EcsFargateSetup`: creates ECS Fargate resources like cluster, service, task definition (using the Docker image you pushed in step 2)
+
+The ECS Fargate Setup will only start one task.
+You can get the public ip address of the task and open it in your browser to see a `Hello World` text:
+
+- `aws ecs list-tasks --cluster example-cluster`
+- `aws ecs describe-tasks --cluster example-cluster --tasks <taskArn>`
+
 
 ## Useful commands
 

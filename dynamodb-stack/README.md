@@ -1,8 +1,10 @@
-# Welcome to your CDK TypeScript project
+# dynamodb-stack
 
-This is a blank project for CDK development with TypeScript.
+An example CDK project deploying various DynamoDB tables with different settings.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Quick Start
+
+Run `cdk deploy` in your terminal to deploy the resources. 
 
 ## Useful commands
 
