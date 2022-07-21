@@ -23,6 +23,14 @@ You can get the public ip address of the task and open it in your browser to see
 - `aws ecs list-tasks --cluster example-cluster`
 - `aws ecs describe-tasks --cluster example-cluster --tasks <taskArn>`
 
+### Updating Docker Image
+
+If you want to update the Docker image, just make your changes to the [Dockerfile](./docker/Dockerfile) and push a new version using [`build-and-push-docker.sh`](./build-and-push-docker.sh).
+Then, run `cdk deploy EcsFargateSetup` again.
+
+> Consider that this simplified example is always using the `latest` tag for Docker images.
+> If you push a new Docker image, a new version will overwrite the old one.
+
 
 ## Useful commands
 
