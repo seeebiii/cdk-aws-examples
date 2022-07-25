@@ -22,6 +22,7 @@ export class EcsFargateSetup extends Stack {
     const ecrRepo = Repository.fromRepositoryName(this, 'example-repository', 'example-repository');
 
     taskDefinition.addContainer('example-container', {
+      // optional: use the amazon-ecs-sample image which is available in the official DockerHub
       // image: ContainerImage.fromRegistry('amazon/amazon-ecs-sample'),
       image: ContainerImage.fromEcrRepository(ecrRepo, 'latest'),
       cpu: 256,

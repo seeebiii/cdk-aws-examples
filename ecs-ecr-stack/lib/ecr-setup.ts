@@ -10,7 +10,7 @@ export class EcrSetup extends Stack {
       repositoryName: 'example-repository',
       removalPolicy: RemovalPolicy.DESTROY,
       // since this stack only exists just for demonstration purposes, quickly remove the images
-      lifecycleRules: [{ maxImageCount: 1, maxImageAge: Duration.days(1) }]
+      lifecycleRules: [{ maxImageAge: Duration.days(1) }]
     });
 
     new CfnOutput(this, 'repo-uri', {
